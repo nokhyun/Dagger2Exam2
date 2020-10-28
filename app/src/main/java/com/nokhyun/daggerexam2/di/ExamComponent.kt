@@ -4,12 +4,14 @@ import android.content.Context
 import com.nokhyun.daggerexam2.di.model.PersonA
 import com.nokhyun.daggerexam2.di.model.PersonB
 import com.nokhyun.daggerexam2.di.module.CandyModule
+import com.nokhyun.daggerexam2.di.module.CounterModule
 import com.nokhyun.daggerexam2.di.module.MyModule
 import com.nokhyun.daggerexam2.di.module.PersonModule
 import dagger.BindsInstance
 import dagger.Component
 
-@Component(modules = [CandyModule::class, PersonModule::class, MyModule::class])
+//@Component(modules = [CandyModule::class, PersonModule::class, MyModule::class, CounterModule::class])
+@Component(modules = [CounterModule::class])
 interface ExamComponent {
     // 리턴값이 없는 멤버 인젝션 메소드
 //    fun injectSomeType(candy: Candy)
@@ -46,14 +48,18 @@ interface ExamComponent {
     * component, super.component를 반환하는 하나의 abstract method만 존재해야함.
     * Dagger 2.22
     * */
-    @Component.Factory
-    interface Factory{
+//    @Component.Factoryy
+//    interface Factory{
         // 모듈내에 공통적으로 필요한 것들 적용하면 좋을듯함
         // 모듈에내 어디든지 context 사용가능
         // method에 @BindsInstance 붙은 parameter는 해당 component에 인스턴스를 넘겨 바인드 시킴.
-        fun create(@BindsInstance context: Context): ExamComponent
-    }
+//        fun create(@BindsInstance context: Context): ExamComponent
+//    }
 
+
+
+    // Lazy
+    fun inject(counter: Counter)
 
 
 }
