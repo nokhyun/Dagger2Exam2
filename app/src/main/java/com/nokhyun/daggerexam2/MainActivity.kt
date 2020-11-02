@@ -45,11 +45,12 @@ class MainActivity : AppCompatActivity() {
 
 //        DaggerExamComponent.factory().create(this@MainActivity)
 
-        // 2020. 10. 28
+        // 2020. 10. 28, 11. 02
         val component = DaggerExamComponent.create()
         val counter = Counter()
         component.inject(counter)
-        counter.printLazy()
+//        counter.printLazy()
+        counter.printProvider()
 
 
     }
