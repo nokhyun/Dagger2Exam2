@@ -2,6 +2,7 @@ package com.nokhyun.daggerexam2
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.nokhyun.daggerexam2.di.Candy
 import com.nokhyun.daggerexam2.di.Counter
 import com.nokhyun.daggerexam2.di.DaggerExamComponent
 import com.nokhyun.daggerexam2.di.ExamComponent
@@ -46,12 +47,18 @@ class MainActivity : AppCompatActivity() {
 //        DaggerExamComponent.factory().create(this@MainActivity)
 
         // 2020. 10. 28, 11. 02
-        val component = DaggerExamComponent.create()
-        val counter = Counter()
-        component.inject(counter)
+//        val component = DaggerExamComponent.create()
+//        val counter = Counter()
+//        component.inject(counter)
 //        counter.printLazy()
-        counter.printProvider()
+//        counter.printProvider()
 
+        // 2020. 11. 04
+        val component = DaggerExamComponent.create()
+        val candy = Candy()
+        component.inject(candy)
+        println(candy.candy1)
+        println(candy.candy2)
 
     }
 }

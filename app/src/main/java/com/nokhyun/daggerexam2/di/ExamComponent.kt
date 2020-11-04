@@ -11,7 +11,8 @@ import dagger.BindsInstance
 import dagger.Component
 
 //@Component(modules = [CandyModule::class, PersonModule::class, MyModule::class, CounterModule::class])
-@Component(modules = [CounterModule::class])
+//@Component(modules = [CounterModule::class])
+@Component(modules = [CandyModule::class])
 interface ExamComponent {
     // 리턴값이 없는 멤버 인젝션 메소드
 //    fun injectSomeType(candy: Candy)
@@ -59,7 +60,10 @@ interface ExamComponent {
 
 
     // Lazy
-    fun inject(counter: Counter)
+//    fun inject(counter: Counter)
 
+
+    // 2020. 11. 04
+    fun inject(candy: Candy)
 
 }

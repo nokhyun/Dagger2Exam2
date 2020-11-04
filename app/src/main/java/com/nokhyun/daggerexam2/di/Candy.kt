@@ -1,8 +1,10 @@
 package com.nokhyun.daggerexam2.di
 
 import javax.inject.Inject
+import javax.inject.Named
 
-class Candy @Inject constructor(){
+//class Candy @Inject constructor() {
+class Candy {
 
     /*
     *    @Inject
@@ -10,4 +12,13 @@ class Candy @Inject constructor(){
     *    Candy 로 주입을 시켰는데 주입받는 타입이 String 이여서 때문에 에러가 발생함.
     * */
     var candyName = "사탕"
+
+    @Inject
+    @field:Named("candy1")
+    lateinit var candy1: String
+
+    @Inject
+    @field:Named("candy2")
+    lateinit var candy2: String
+
 }
