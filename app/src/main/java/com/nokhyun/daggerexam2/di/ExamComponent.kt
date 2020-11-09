@@ -1,18 +1,25 @@
 package com.nokhyun.daggerexam2.di
 
 import android.content.Context
+import com.nokhyun.daggerexam2.di.model.Book
+import com.nokhyun.daggerexam2.di.model.MyClass
 import com.nokhyun.daggerexam2.di.model.PersonA
 import com.nokhyun.daggerexam2.di.model.PersonB
 import com.nokhyun.daggerexam2.di.module.CandyModule
 import com.nokhyun.daggerexam2.di.module.CounterModule
 import com.nokhyun.daggerexam2.di.module.MyModule
 import com.nokhyun.daggerexam2.di.module.PersonModule
+import com.nokhyun.daggerexam2.di.scope.UserScope
 import dagger.BindsInstance
 import dagger.Component
+import javax.inject.Singleton
 
 //@Component(modules = [CandyModule::class, PersonModule::class, MyModule::class, CounterModule::class])
 //@Component(modules = [CounterModule::class])
-@Component(modules = [CandyModule::class])
+//@Component(modules = [CandyModule::class])
+//@Singleton
+@UserScope
+@Component(modules = [MyModule::class])
 interface ExamComponent {
     // 리턴값이 없는 멤버 인젝션 메소드
 //    fun injectSomeType(candy: Candy)
@@ -64,6 +71,11 @@ interface ExamComponent {
 
 
     // 2020. 11. 04
-    fun inject(candy: Candy)
+//    fun inject(candy: Candy)
+
+    // 2020. 11. 09
+//    fun inject(myClass: MyClass)
+    fun getBook(): Book
+//    fun getAny(): Any
 
 }

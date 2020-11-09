@@ -6,6 +6,7 @@ import com.nokhyun.daggerexam2.di.Candy
 import com.nokhyun.daggerexam2.di.Counter
 import com.nokhyun.daggerexam2.di.DaggerExamComponent
 import com.nokhyun.daggerexam2.di.ExamComponent
+import com.nokhyun.daggerexam2.di.model.MyClass
 
 class MainActivity : AppCompatActivity() {
     companion object {
@@ -54,11 +55,28 @@ class MainActivity : AppCompatActivity() {
 //        counter.printProvider()
 
         // 2020. 11. 04
+//        val component = DaggerExamComponent.create()
+//        val candy = Candy()
+//        component.inject(candy)
+//        println(candy.candy1)
+//        println(candy.candy2)
+
+        // 2020. 11. 09
         val component = DaggerExamComponent.create()
-        val candy = Candy()
-        component.inject(candy)
-        println(candy.candy1)
-        println(candy.candy2)
+//        val myClass = MyClass()
+//        component.inject(myClass)
+//        println("result: ${myClass.strHello}, ${myClass.strWorld}")
+
+//        component.getBook()
+
+//        val book1 = component.getBook()
+//        val book2 = component.getBook()
+//        book1.also {
+            // 객체 확인
+//            println("${it === book2}")
+//        }
+
+//        component.getAny()
 
     }
 }
