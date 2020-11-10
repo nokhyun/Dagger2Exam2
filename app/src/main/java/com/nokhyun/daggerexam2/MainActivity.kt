@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.nokhyun.daggerexam2.di.Candy
 import com.nokhyun.daggerexam2.di.Counter
-import com.nokhyun.daggerexam2.di.DaggerExamComponent
+import com.nokhyun.daggerexam2.di.DaggerStrComponent
 import com.nokhyun.daggerexam2.di.ExamComponent
 import com.nokhyun.daggerexam2.di.model.MyClass
 
@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
 //        println(candy.candy2)
 
         // 2020. 11. 09
-        val component = DaggerExamComponent.create()
+//        val component = DaggerExamComponent.create()
 //        val myClass = MyClass()
 //        component.inject(myClass)
 //        println("result: ${myClass.strHello}, ${myClass.strWorld}")
@@ -72,11 +72,22 @@ class MainActivity : AppCompatActivity() {
 //        val book1 = component.getBook()
 //        val book2 = component.getBook()
 //        book1.also {
-            // 객체 확인
+           // 객체 확인
 //            println("${it === book2}")
 //        }
 
 //        component.getAny()
+
+        // 2020. 11. 10
+        val component = DaggerStrComponent.create()
+
+        val foo = Foo()
+        component.inject(foo)
+        /*
+        * 바인드가 된 적이있으면 true
+        * */
+        println(foo.str.isPresent)
+        println(foo.str.get())
 
     }
 }

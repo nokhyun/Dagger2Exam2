@@ -18,8 +18,8 @@ import javax.inject.Singleton
 //@Component(modules = [CounterModule::class])
 //@Component(modules = [CandyModule::class])
 //@Singleton
-@UserScope
-@Component(modules = [MyModule::class])
+//@UserScope
+//@Component(modules = [MyModule::class])
 interface ExamComponent {
     // 리턴값이 없는 멤버 인젝션 메소드
 //    fun injectSomeType(candy: Candy)
@@ -75,7 +75,7 @@ interface ExamComponent {
 
     // 2020. 11. 09
 //    fun inject(myClass: MyClass)
-    fun getBook(): Book
+//    fun getBook(): Book
 //    fun getAny(): Any
 
 }
