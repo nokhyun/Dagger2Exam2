@@ -1,4 +1,4 @@
-package com.nokhyun.daggerexam2.di
+package com.nokhyun.daggerexam2.di.component
 
 import android.content.Context
 import com.nokhyun.daggerexam2.di.model.Book

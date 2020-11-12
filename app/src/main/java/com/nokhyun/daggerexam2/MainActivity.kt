@@ -2,11 +2,8 @@ package com.nokhyun.daggerexam2
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.nokhyun.daggerexam2.di.Candy
-import com.nokhyun.daggerexam2.di.Counter
-import com.nokhyun.daggerexam2.di.DaggerStrComponent
-import com.nokhyun.daggerexam2.di.ExamComponent
-import com.nokhyun.daggerexam2.di.model.MyClass
+import com.nokhyun.daggerexam2.di.component.DaggerSetComponent
+import com.nokhyun.daggerexam2.di.model.SetFoo
 
 class MainActivity : AppCompatActivity() {
     companion object {
@@ -79,15 +76,21 @@ class MainActivity : AppCompatActivity() {
 //        component.getAny()
 
         // 2020. 11. 10
-        val component = DaggerStrComponent.create()
+//        val component = DaggerStrComponent.create()
+//
+//        val foo = Foo()
+//        component.inject(foo)
+//        /*
+//        * 바인드가 된 적이있으면 true
+//        * */
+//        println(foo.str.isPresent)
+//        println(foo.str.get())
 
-        val foo = Foo()
-        component.inject(foo)
-        /*
-        * 바인드가 된 적이있으면 true
-        * */
-        println(foo.str.isPresent)
-        println(foo.str.get())
+        // 2020. 11. 12
+        val component = DaggerSetComponent.create()
+        val setFoo = SetFoo()
+        component.inject(setFoo)
+        setFoo.print()
 
     }
 }
