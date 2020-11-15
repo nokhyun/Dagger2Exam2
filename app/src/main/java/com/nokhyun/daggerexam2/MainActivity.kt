@@ -2,8 +2,8 @@ package com.nokhyun.daggerexam2
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.nokhyun.daggerexam2.di.component.DaggerSetComponent
-import com.nokhyun.daggerexam2.di.model.SetFoo
+import com.nokhyun.daggerexam2.di.component.DaggerMapComponent
+import com.nokhyun.daggerexam2.di.model.MapFoo
 
 class MainActivity : AppCompatActivity() {
     companion object {
@@ -87,10 +87,20 @@ class MainActivity : AppCompatActivity() {
 //        println(foo.str.get())
 
         // 2020. 11. 12
-        val component = DaggerSetComponent.create()
-        val setFoo = SetFoo()
-        component.inject(setFoo)
-        setFoo.print()
+//        val component = DaggerSetComponent.create()
+//        val setFoo = SetFoo()
+//        component.inject(setFoo)
+//        setFoo.print()
+
+        // 2020. 11. 15
+        val component = DaggerMapComponent.create().run {
+            val value = getLongsByString()["foo"]
+            val str = getStringsByClass()[MapFoo::class.java]
+
+            println("value: $value")
+            println("str: $str")
+        }
+
 
     }
 }
